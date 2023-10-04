@@ -8,13 +8,34 @@
 :root.theme-dark {
   --main-bg-color: #000000;
   --main-accent-color: #00cc14;
-  --card-text-weight: 400;
-  --card-title-weight: 700;
+  --card-text-weight: 465;
+  --card-title-weight: 785;
+  --button-text-color: #00CC14;
+  --background-gradient-from: #007f0c;
+  --background-gradient-for: #004306;
+  --linear-gradient: #000;
 }
 
 :root.theme-light {
+  --card-text-weight: 400;
+  --card-title-weight: 700;
   --main-bg-color: #ffffff;
   --main-accent-color: #000000;
-  --card-text-weight: 465;
-  --card-title-weight: 785;
+  --button-text-color: #fff;
+  --background-gradient-from: #e7e7e7;
+  --background-gradient-for: #1a1a1a;
+  --linear-gradient: #d3d3d3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-bg-color: #000000;
+    --main-accent-color: #00cc14;
+    --card-text-weight: 465;
+    --card-title-weight: 785;
+    --button-text-color: #00CC14;
+    --background-gradient-from: #007f0c;
+    --background-gradient-for: #004306;
+    --linear-gradient: #000;
+  }
 }

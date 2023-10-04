@@ -8,4 +8,7 @@
   --main-accent-color: #000000;
   --button-text-color: #fff;
   --heart-fill: #ff0000;
+  --background-gradient-from: #e7e7e7;
+  --background-gradient-for: #1a1a1a;
+  --linear-gradient: #d3d3d3;
 }
