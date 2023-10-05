@@ -41,7 +41,7 @@
 }
 
 .content-section {
-  width: clamp(371px, 70%, 700px);
+  width: clamp(375px, 70%, 700px);
   margin: 0 auto;
 }
 
@@ -54,6 +54,7 @@
 }
 
 .header__logo {
+  text-decoration: none;
   font-family: var(--accent-font);
   font-size: clamp(3.063rem, 2.71rem + 1.5vw, 4.063rem);
   font-style: normal;
@@ -61,6 +62,7 @@
   line-height: normal;
   text-transform: uppercase;
   margin: 136px auto 20px;
+  pointer-events: none;
 }
 
 .header__title {
@@ -136,18 +138,12 @@
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
+  top: 1px;
   left: -14px;
   animation: shift 0.5s ease-in-out infinite alternate;
 }
 
-@keyframes shift {
-  0% {
-    left: -14px;
-  }
-  100% {
-    left: -10px;
-  }
-}
+
 
 .card_list {
   display: grid;
@@ -197,75 +193,40 @@
   }
 }
 
-.card_list__image__freetrack {
+.card_image__picture {
   width: 100%;
-  padding-top: 100%;
-  background-image: url(../images/start.jpg);
-  background-size: cover;
   border: 2px solid var(--main-accent-color);
+}
+
+.card_list__image__freetrack {
   filter: contrast(200%);
 }
 
 .card_list__image__first-sprint-start {
-  width: 100%;
-  padding-top: 100%;
-  background-image: url(../images/first-sprint-start.jpg);
-  background-size: cover;
-  border: 2px solid var(--main-accent-color);
   filter: sepia(100%);
 }
 
 .card_list__image__first-sprint-finish {
-  width: 100%;
-  padding-top: 100%;
-  background-image: url(../images/expectation.jpg);
-  background-size: cover;
-  border: 2px solid var(--main-accent-color);
   filter: invert(100%);
 }
 
 .card_list__image__second-sprint-start {
-  width: 100%;
-  padding-top: 100%;
-  background-image: url(../images/chase.jpg);
-  background-size: cover;
-  border: 2px solid var(--main-accent-color);
   filter: blur(2px) brightness(200%);
 }
 
 .card_list__image__second-sprint-finish {
-  width: 100%;
-  padding-top: 100%;
-  background-image: url(../images/drip.jpg);
-  background-size: cover;
-  border: 2px solid var(--main-accent-color);
   filter: grayscale(90%);
 }
 
 .card_list__image__third-sprint-start {
-  width: 100%;
-  padding-top: 100%;
-  background-image: url(../images/rush.jpg);
-  background-size: cover;
-  border: 2px solid var(--main-accent-color);
   filter: saturate(400%);
 }
 
 .card_list__image__third-sprint-finish {
-  width: 100%;
-  padding-top: 100%;
-  background-image: url(../images/solve.jpg);
-  background-size: cover;
-  border: 2px solid var(--main-accent-color);
   filter: brightness(200%);
 }
 
 .card_list__image__fourth-sprint-here {
-  width: 100%;
-  padding-top: 100%;
-  background-image: url(../images/emotions.jpg);
-  background-size: cover;
-  border: 2px solid var(--main-accent-color);
   filter: hue-rotate(60deg);
 }
 
@@ -285,6 +246,11 @@
   border: none;
   align-self: flex-end;
   display: flex;
+}
+
+.like-icon {
+  width: 39px;
+  height: 36px;
 }
 
 .like-icon:hover {
@@ -340,34 +306,6 @@
 
 .like-icon.is-liked .sparks {
   animation: sparks 0.3s 0.3s ease-in;
-}
-
-@keyframes like-icon {
-  0% {
-    scale: 1;
-  }
-
-  50% {
-    scale: 1.5;
-  }
-
-  100% {
-    scale: 1;
-  }
-}
-
-@keyframes sparks {
-  0% {
-    fill: transparent;
-  }
-
-  50% {
-    fill: var(--heart-fill);
-  }
-
-  100% {
-    fill: transparent;
-  }
 }
 
 .card__like-button {
@@ -470,12 +408,15 @@
 }
 
 .button_save__ico {
-  color: var(--button-text-color);
+  color:var(--button-text-color);
   mix-blend-mode: difference;
   position: relative;
+  width: 21px;
+  height: 21px;
+  z-index: 2;
 }
 
-#window_save-for-memory[open] {
+.window_save-for-memory[open] {
   display: flex;
   gap: 30px;
   flex-direction: column;
@@ -488,11 +429,10 @@
 
 .window_save-for-memory__icon {
   color: var(--main-accent-color);
-  min-width: 40px;
-  min-height: 40px;
+  width: 85px;
 }
 
-#window_save-for-memory::backdrop {
+.window_save-for-memory::backdrop {
   background-color: #000000bf;
 }
 
@@ -519,6 +459,22 @@
   color: var(--main-accent-color);
   min-height: 38px;
   cursor: pointer;
+  position: relative;
+}
+
+.window_save-for-memory__button::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background-color: var(--main-accent-color);
+  top: 0;
+  left: 0;
+}
+
+.window_save-for-memory__button:hover::before {
+  width: 100%;
+  transition: width 0.5s ease-in-out;
 }
 
 .window_save-for-memory__info-section {
@@ -527,21 +483,22 @@
   align-items: center;
 }
 
+
 @media (width <= 375px) {
   .button_save {
     flex-direction: column;
   }
 
   .button_save__ico {
-    min-width: 28px;
-    min-height: 28px;
+    width: 28px;
+    height: 28px;
   }
 
   .header__logo {
     margin-top: 120px;
   }
 
-  #window_save-for-memory[open] {
+  .window_save-for-memory[open] {
     margin: auto 17px;
   }
 }
