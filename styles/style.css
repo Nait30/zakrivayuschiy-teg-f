@@ -195,7 +195,10 @@
 
 .card_image__picture {
   width: 100%;
-  border: 2px solid var(--main-accent-color);
+  aspect-ratio: 1 / 1;
+  border-top: 2px solid var(--main-accent-color);
+  border-bottom: 2px solid var(--main-accent-color);
+  box-sizing: content-box;
 }
 
 .card_list__image__freetrack {
@@ -233,7 +236,7 @@
 .card_list__text {
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  padding: 23px 25px 25px;
   gap: 26px;
   font-size: 18px;
   font-style: normal;
@@ -244,12 +247,13 @@
 .buttons-like {
   background: none;
   border: none;
-  align-self: flex-end;
   display: flex;
+  align-self: flex-end;
+  gap: 5px;
 }
 
 .like-icon {
-  width: 39px;
+  width: 38px;
   height: 36px;
 }
 
@@ -311,7 +315,6 @@
 .card__like-button {
   position: relative;
   width: 130px;
-  height: 38px;
   border: 2px solid var(--main-accent-color);
   background: none;
   cursor: pointer;
@@ -344,9 +347,10 @@
   border: 2px solid transparent;
   display: flex;
   align-items: center;
+  padding: 0 0;
 }
 
-.card__icon-button:focus-visible {
+.card__icon-button:focus-visible{
   outline: none;
   border-color: var(--main-accent-color);
   transition: border-color 0.3s ease;
@@ -401,10 +405,6 @@
 .button_save:hover::before {
   width: 100%;
   transition: width 0.5s ease-in-out;
-}
-
-#floppy > rect {
-  fill: currentColor;
 }
 
 .button_save__ico {
